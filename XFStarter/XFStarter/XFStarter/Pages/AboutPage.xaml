@@ -1,0 +1,21 @@
+﻿<mvvm:ViewBase xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+               xmlns:vm="clr-namespace:XFStarter.ViewModels"
+               xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:res="clr-namespace:XFStarter.Resources"
+               x:Class="XFStarter.Pages.AboutPage"
+               x:TypeArguments="vm:AboutViewModel"
+               BackgroundColor="SlateGray">
+    <StackLayout>
+    <Label Text="About" TextColor="Blue" />
+        <Image>
+            <Image.Source>
+                <FontImageSource FontFamily="TablerIcons"
+                                 Glyph="{x:Static res:IconFont.MoodTongue}"
+                                 Size="100"
+                                 Color="Tomato" />
+            </Image.Source>
+        </Image>
+
+    </StackLayout>
+</mvvm:ViewBase>
