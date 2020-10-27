@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using XFStarter.iOS.IoC;
 
 namespace XFStarter.iOS
 {
@@ -23,7 +24,7 @@ namespace XFStarter.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new PlatformModule()));
 
             return base.FinishedLaunching(app, options);
         }

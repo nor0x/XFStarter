@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using XFStarter.UWP.IoC;
 
 namespace XFStarter.UWP
 {
@@ -21,7 +22,7 @@ namespace XFStarter.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new XFStarter.App());
+            LoadApplication(new XFStarter.App(new PlatformModule()));
         }
     }
 }

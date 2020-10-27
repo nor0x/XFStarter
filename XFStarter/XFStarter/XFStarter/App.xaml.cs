@@ -8,24 +8,29 @@ using TinyNavigationHelper;
 using TinyNavigationHelper.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFStarter.IoC;
+using Module = Autofac.Module;
 
 namespace XFStarter
 {
     public partial class App : Application
     {
-        public App()
+        public static IContainer Container;
+
+        public App(Module platformModule)
         {
             InitializeComponent();
+            InitializeDependencies(platformModule);
 
+            MainPage = new AppShell();
+        }
 
-            var navigationHelper = new ShellNavigationHelper();
-
-            var currentAssembly = Assembly.GetExecutingAssembly();
-            navigationHelper.RegisterViewsInAssembly(currentAssembly);
-
+        private void InitializeDependencies(Module platformModule)
+        {
             var containerBuilder = new ContainerBuilder();
 
-            containerBuilder.RegisterInstance<INavigationHelper>(navigationHelper);
+
+            containerBuilder.RegisterModule(platformModule);
 
             var appAssembly = typeof(App).GetTypeInfo().Assembly;
             containerBuilder.RegisterAssemblyTypes(appAssembly)
@@ -34,11 +39,13 @@ namespace XFStarter
             containerBuilder.RegisterAssemblyTypes(appAssembly)
                    .Where(x => x.IsSubclassOf(typeof(ViewModelBase)));
 
-            var container = containerBuilder.Build();
+            containerBuilder.RegisterModule(new SharedModule());
 
-            Resolver.SetResolver(new AutofacResolver(container));
+            Container = containerBuilder.Build();
 
-            MainPage = new AppShell();
+            Resolver.SetResolver(new AutofacResolver(Container));
+
+
         }
 
         protected override void OnStart()
