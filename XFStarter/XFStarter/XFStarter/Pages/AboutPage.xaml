@@ -2,18 +2,21 @@
                xmlns:vm="clr-namespace:XFStarter.ViewModels"
                xmlns="http://xamarin.com/schemas/2014/forms"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                xmlns:res="clr-namespace:XFStarter.Resources"
                x:Class="XFStarter.Pages.AboutPage"
                x:TypeArguments="vm:AboutViewModel"
-               BackgroundColor="SlateGray">
+               ios:Page.UseSafeArea="True"
+               BackgroundColor="{DynamicResource DynamicBackgroundColor}">
     <StackLayout>
-    <Label Text="About" TextColor="Blue" />
+        <Label Text="About"
+               TextColor="{DynamicResource DynamicTextColor}" />
         <Image>
             <Image.Source>
                 <FontImageSource FontFamily="TablerIcons"
                                  Glyph="{x:Static res:IconFont.MoodTongue}"
                                  Size="100"
-                                 Color="Tomato" />
+                                 Color="{DynamicResource DynamicAccentColor}" />
             </Image.Source>
         </Image>
 

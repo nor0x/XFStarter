@@ -3,13 +3,17 @@
        xmlns:pages="clr-namespace:XFStarter.Pages"
        x:Class="XFStarter.AppShell"
        xmlns:res="clr-namespace:XFStarter.Resources"
-       FlyoutIsPresented="True"
-       Shell.TabBarIsVisible="True"
-       FlyoutBehavior="Flyout">
+       Shell.NavBarIsVisible="False"
+       NavigationPage.HasNavigationBar="False"
+       Shell.TabBarIsVisible="True">
+    <ShellItem Route="loading" Title="Loading">
+        <ShellContent ContentTemplate="{DataTemplate pages:LoadingPage}"
+                      NavigationPage.HasNavigationBar="False" />
+    </ShellItem>
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-
         <ShellContent Title="Main"
+                      Route="main"
                       ContentTemplate="{DataTemplate pages:MainPage}">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="TablerIcons"
@@ -19,6 +23,7 @@
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="About"
+                      Route="about"
                       ContentTemplate="{DataTemplate pages:AboutPage}">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="TablerIcons"

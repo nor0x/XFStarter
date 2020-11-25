@@ -2,21 +2,28 @@
                xmlns:vm="clr-namespace:XFStarter.ViewModels"
                xmlns="http://xamarin.com/schemas/2014/forms"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                xmlns:res="clr-namespace:XFStarter.Resources"
                x:Class="XFStarter.Pages.MainPage"
-               BackgroundColor="SlateGray"
+               Shell.FlyoutBehavior="Flyout"
+               ios:Page.UseSafeArea="True"
+               BackgroundColor="{DynamicResource DynamicBackgroundColor}"
                x:TypeArguments="vm:MainViewModel">
     <StackLayout>
-    <Label Text="Hello World" TextColor="Orange" />
+        <Label Text="Hello World"
+               TextColor="{DynamicResource DynamicTextColor}" />
         <Image>
             <Image.Source>
                 <FontImageSource FontFamily="TablerIcons"
                                  Glyph="{x:Static res:IconFont.MoodSmile}"
                                  Size="100"
-                                 Color="Tomato" />
+                                 Color="{DynamicResource DynamicAccentColor}" />
             </Image.Source>
         </Image>
-
+        <Button Text="ChangeTheme"
+                Command="{Binding ChangeThemeCommand}"
+                BackgroundColor="{DynamicResource DynamicAccentColor}"
+                TextColor="{DynamicResource DynamicTextColor}" />
 
     </StackLayout>
 </mvvm:ViewBase>

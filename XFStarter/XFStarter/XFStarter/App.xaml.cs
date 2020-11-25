@@ -6,8 +6,10 @@ using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
 using TinyNavigationHelper;
 using TinyNavigationHelper.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFStarter.Helpers;
 using XFStarter.IoC;
 using Module = Autofac.Module;
 
@@ -21,6 +23,17 @@ namespace XFStarter
         {
             InitializeComponent();
             InitializeDependencies(platformModule);
+
+            if(AppInfo.RequestedTheme == AppTheme.Dark)
+            {
+                ResourcesHelper.SetDarkMode();
+
+            }
+            else
+            {
+                ResourcesHelper.SetLightMode();
+
+            }
 
             MainPage = new AppShell();
         }

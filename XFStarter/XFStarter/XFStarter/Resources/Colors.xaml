@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="XFStarter.Resources.Colors">
+    
+    <Color x:Key="DarkDynamicBackgroundColor">#042A2B</Color>
+    <Color x:Key="DarkDynamicTextColor">#5EB1BF</Color>
+    <Color x:Key="DarkDynamicAccentColor">#54F2F2</Color>
+
+    <Color x:Key="LightDynamicBackgroundColor">#CAE5FF</Color>
+    <Color x:Key="LightDynamicTextColor">#5D5F71</Color>
+    <Color x:Key="LightDynamicAccentColor">#F4E04D</Color>
+
+</ResourceDictionary>

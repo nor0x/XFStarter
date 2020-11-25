@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+               xmlns:vm="clr-namespace:XFStarter.ViewModels"
+               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+               Shell.NavBarIsVisible="False"
+               Shell.PresentationMode="Modal"
+               NavigationPage.HasNavigationBar="true"
+               ios:Page.UseSafeArea="True"
+               x:Class="XFStarter.Pages.LoadingPage"
+               BackgroundColor="{DynamicResource DynamicBackgroundColor}"
+               x:TypeArguments="vm:LoadingViewModel">
+    <mvvm:ViewBase.Content>
+        <Grid>
+            <ActivityIndicator 
+                VerticalOptions="Center"
+                IsRunning="True"
+                ScaleX="1.5"
+                ScaleY="1.5"
+                Color="{DynamicResource DynamicAccentColor}" />
+            <Label Text="hello world!" />
+        </Grid>
+    </mvvm:ViewBase.Content>
+</mvvm:ViewBase>
