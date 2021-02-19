@@ -27,12 +27,10 @@ namespace XFStarter
             if(AppInfo.RequestedTheme == AppTheme.Dark)
             {
                 ResourcesHelper.SetDarkMode();
-
             }
             else
             {
                 ResourcesHelper.SetLightMode();
-
             }
 
             MainPage = new AppShell();
